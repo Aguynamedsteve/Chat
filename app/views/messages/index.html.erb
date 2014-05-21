@@ -1,0 +1,11 @@
+<div class="container">
+  <% @messages.each do |message| %>
+    <%= render partial: "messages/message", locals: { message: message } %>
+  <% end %>
+</div>
+  <div class="form-group left">
+    <%= form_for @message, url: messages_path(@message) do |f| %>
+    <%= f.text_field :content, rows: 1, autofocus: :true %>
+    <%= f.submit "send" %>
+    <% end %>
+  </div>
