@@ -1,24 +1,24 @@
 class MessagesController < ApplicationController
-
-  enable_sync only: [:create, :update, :destroy]
+  respond_to :html, :js
 
   def index
-    @message = Message.new
     @messages = Message.all
-  end
-
-  def new
-    @message = Message.new
+    @new_message = Message.new
   end
 
   def create
-    @message = Message.create(params.require(:message).permit(:content))
+    @message = Message.new(message_params)
 
     if @message.save
       sync_new @message
-      redirect_to messages_path
-    else
-      render "new"
     end
+
+    respond_with { @message }
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
   end
 end
