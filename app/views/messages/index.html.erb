@@ -1,6 +1,6 @@
 <div class="container">
   <% @messages.each do |message| %>
-    <%= render partial: "messages/message", locals: { message: message } %>
+    <%= sync_new partial: "message", resource: Message.new %>
   <% end %>
 </div>
   <div class="form-group left">
