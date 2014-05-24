@@ -1,3 +1,7 @@
 class Message < ActiveRecord::Base
-  sync :all
+
+belongs_to :user
+
+sync :all
+
 end
