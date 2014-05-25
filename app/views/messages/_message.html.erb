@@ -1,1 +1,12 @@
-<p><%= message.content %></p>
+<tr>
+  <td>
+    <%= current_user.name %>
+  </td>
+  <td>
+    <%# message.content %>
+    <%= Mymemory.translate(message.content, :from => :en, :to => :es) %>
+  </td>
+  <td>
+    <%= Mymemory.translate(message.content, :from => :es, :to => :en) %>
+  </td>
+</tr>
