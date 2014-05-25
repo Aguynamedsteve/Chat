@@ -6,7 +6,6 @@ gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
 group :production do
   gem 'pg'
-  gem 'thin', require: false
   gem 'rails_12factor'
 end
 
@@ -35,6 +34,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'faye'
+gem 'thin', require: false
 gem 'sync'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.1.1'
