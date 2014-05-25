@@ -1,5 +1,12 @@
 <tr>
   <td>
+    <% if current_user.name == nil %>
+      <p>Peek a Boo</p>
+    <% else %>
+    <%= current_user.name %>
+    <% end %>
+  </td>
+  <td>
     <%= message.content %>
   </td>
 </tr>

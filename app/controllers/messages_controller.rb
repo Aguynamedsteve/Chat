@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @user = current_user
+    #@user = current_user
     @new_message = Message.new
     @messages = current_user.messages.where("created_at >= ?", Time.now - 1.day)
   end
