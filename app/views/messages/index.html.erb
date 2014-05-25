@@ -1,19 +1,21 @@
-<h3>Messages</h3>
 
-<table>
-  <tbody>
-    <%= sync partial: 'message', collection: @messages %>
-    <%= sync_new partial: 'message', resource: Message.new %>
-  </tbody>
-</table>
-
-<hr>
-
-<%= form_for @new_message, remote: true do |f| %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-
-  <%= f.submit "Chat" %>
-<% end %>
+<div class="border-form-div">
+  <h3>Chat</h3>
+    <table>
+      <tbody>
+        <%= sync partial: 'message', collection: @messages %>
+        <%= sync_new partial: 'message', resource: Message.new %>
+      </tbody>
+    </table>
+    
+    <hr>
+    
+    <%= form_for @new_message, remote: true do |f| %>
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    
+      <%= f.submit "Send" %>
+    <% end %>
+</div>
 
 

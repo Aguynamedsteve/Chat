@@ -2,12 +2,13 @@ class MessagesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @messages = Message.all
+    @user = current_user
     @new_message = Message.new
+    @messages = current_user.messages.where("created_at >= ?", Time.now - 1.day)
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.build(message_params)
 
     if @message.save
       sync_new @message
