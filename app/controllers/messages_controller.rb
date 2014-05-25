@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   respond_to :html, :js
+  before_filter :require_login
 
   def index
     #@user = current_user
@@ -9,6 +10,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.build(message_params)
+    authorize @message
 
     if @message.save
       sync_new @message
@@ -21,5 +23,11 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def require_login
+    unless current_user
+      redirect_to root_path
+    end
   end
 end
