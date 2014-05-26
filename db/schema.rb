@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524202556) do
+ActiveRecord::Schema.define(version: 20140526003839) do
 
   create_table "messages", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "translated"
   end
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140524202556) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "english"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

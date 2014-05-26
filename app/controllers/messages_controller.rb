@@ -1,15 +1,21 @@
 class MessagesController < ApplicationController
   respond_to :html, :js
   before_filter :require_login
+  #require 'mymemory'
 
   def index
-    #@user = current_user
     @new_message = Message.new
-    @messages = current_user.messages.where("created_at >= ?", Time.now - 1.day)
+    @messages = Message.where("created_at >= ?", Time.now - 1.day)
   end
 
   def create
     @message = current_user.messages.build(message_params)
+    if current_user.english
+      @message.translated = Mymemory.translate(@message.content, :from => :en, :to => :es).html_safe
+    else
+      @message.translated = Mymemory.translate(@message.content, :from => :es, :to => :en).html_safe
+    end
+ 
     authorize @message
 
     if @message.save

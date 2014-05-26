@@ -1,8 +1,20 @@
 <tr>
   <td>
-    <%= current_user.name %>
+    <%= message.user.name %>
   </td>
   <td>
+    <% if current_user == message.user %>
     <%= message.content %>
+    <% else %>
+    <%= message.translated %>
+    <% end %>
+  </td>
+  <td>
+    <% if current_user == message.user %>
+    <%= message.translated %>
+    <% else %>
+    <%= message.content %>
+    <% end %>
   </td>
 </tr>
+

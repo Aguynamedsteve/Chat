@@ -81,5 +81,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = { :host => 'http://pacific-fortress-2576.herokuapp.com' }
-  Mymemory.config.email = 'stevebarnes@yandex.com'
+  # Mymemory.config.email = 'stevebarnes@yandex.com'
 end

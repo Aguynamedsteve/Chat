@@ -38,5 +38,5 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
 
-  Mymemory.config.email = 'stevebarnes@yandex.com'
+  Mymemory.config.email = 'steve.barnesjr@yahoo.com'
 end
